@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kotlin</string>
+    <string name="str_a">a:</string>
+    <string name="str_plus">+</string>
+    <string name="str_b">b:</string>
+    <string name="str_calculate">计算</string>
+</resources>
