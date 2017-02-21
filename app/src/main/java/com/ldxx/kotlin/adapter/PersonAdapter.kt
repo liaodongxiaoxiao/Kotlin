@@ -15,8 +15,7 @@ import kotlinx.android.synthetic.main.item_person.view.*
  * ldxx on 2017/2/20.
  */
 class PersonAdapter : RecyclerView.Adapter<ViewHolder>() {
-    //var data: PersonList = PersonList(emptyList())
-    var list:MutableCollection<Person> = mutableListOf()
+    var list: MutableCollection<Person> = mutableListOf()
 
     override fun getItemCount(): Int {
         return list.size
@@ -24,6 +23,9 @@ class PersonAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindData(list.elementAt(position))
+        holder.itemView.setOnClickListener {
+            onItemClick(list.elementAt(position))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,14 +33,16 @@ class PersonAdapter : RecyclerView.Adapter<ViewHolder>() {
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindData(person:Person){
+        fun bindData(person: Person) {
             itemView.item_name.text = person.name
-            itemView.item_age.text = "${person.age} 岁"
+            itemView.item_age.text = String.format(itemView.context.getString(R.string.str_age_format), person.age)
             itemView.item_img.setImageResource(person.img)
         }
     }
 
-    fun addDatas(person: List<Person>){
+    fun addDatas(person: List<Person>) {
         list.addAll(person)
     }
+
+    var onItemClick = fun(person: Person): Unit {}
 }

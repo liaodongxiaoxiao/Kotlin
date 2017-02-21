@@ -1,16 +1,14 @@
 package com.ldxx.kotlin
 
-import android.content.Context
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
-import android.util.Log
-import android.widget.LinearLayout
-import android.widget.Toast
 import com.ldxx.kotlin.adapter.PersonAdapter
 import com.ldxx.kotlin.bean.Person
-import com.ldxx.kotlin.bean.PersonList
+import com.ldxx.kotlin.extensions.hideKeyboard
+import com.ldxx.kotlin.extensions.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,22 +22,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         //var personList: List<Person> = emptyList()
-        var list:MutableCollection<Person> = mutableListOf<Person>()
-        val names = arrayOf("Jim", "Tom", "Lin Tao","Lucy","Han Meimei" )
-        val ages: IntArray = intArrayOf( 12,14,20,15,18 )
-        val images: IntArray = intArrayOf(R.mipmap.p1,R.mipmap.p2,R.mipmap.p3,R.mipmap.p4,R.mipmap.p5 )
-        for (i in 0..4) {
-            //personList.plus()
-            list.add(Person(names[i], ages[i], images[i]))
+        val list: MutableCollection<Person> = initData()
+        val adapter: PersonAdapter = PersonAdapter()
+        adapter.onItemClick = fun(person: Person) {
+            toast(person.name + " clicked")
+            val intent: Intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("person", person)
+            startActivity(intent)
         }
-        val adapter:PersonAdapter = PersonAdapter()
 
         person_list.layoutManager = LinearLayoutManager(this)
         person_list.adapter = adapter
 
         adapter.addDatas(list.toList())
         adapter.notifyDataSetChanged()
-        Log.e("TAG","size:"+adapter.itemCount)
+    }
+
+    private fun initData(): MutableCollection<Person> {
+        val list: MutableCollection<Person> = mutableListOf()
+        val names = arrayOf("Jim", "Tom", "Lin Tao", "Lucy", "Han Meimei")
+        val ages: IntArray = intArrayOf(12, 14, 20, 15, 18)
+        val images: IntArray = intArrayOf(R.mipmap.p1, R.mipmap.p2, R.mipmap.p3, R.mipmap.p4, R.mipmap.p5)
+        (0..4).mapTo(list) { Person(names[it], ages[it], images[it]) }
+        return list
     }
 
 
@@ -48,6 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calculate() {
+        hideKeyboard(text_a)
         val a: String = text_a.text.toString()
         val b: String = text_b.text.toString()
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b)) {
@@ -57,8 +63,7 @@ class MainActivity : AppCompatActivity() {
             text_result.text = sum(a.toInt(), b.toInt())
     }
 
-    fun Context.toast(message: CharSequence) =
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
 }
 
 

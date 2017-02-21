@@ -4,4 +4,7 @@
     <string name="str_plus">+</string>
     <string name="str_b">b:</string>
     <string name="str_calculate">计算</string>
+    <string name="str_username">UserName:</string>
+    <string name="str_age">Age:</string>
+    <string name="str_age_format">%s 岁</string>
 </resources>
