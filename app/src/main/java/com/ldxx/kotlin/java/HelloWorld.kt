@@ -1,7 +1,8 @@
 package com.ldxx.kotlin.java
 
 /**
- * Created by wangzhuo-neu on 2017/2/20.
+ * Created by ldxx
+ * on 2017/2/20.
  */
 
 fun main(args: Array<String>) {
