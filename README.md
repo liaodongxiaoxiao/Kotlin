@@ -3,8 +3,10 @@ Kotlin study demo
 - [中文文档](http://kotlindoc.com/)
 - [官方文档](https://kotlinlang.org/api/latest/jvm/stdlib/)
 - [JetBrains/kotlin-examples](https://github.com/JetBrains/kotlin-examples)
+- [juanchosaravia/KedditBySteps](https://github.com/juanchosaravia/KedditBySteps)
 - [antoniolg/Kotlin-for-Android-Developers](https://github.com/antoniolg/Kotlin-for-Android-Developers)
 - [Schibsted-Tech-Polska/kotlin-kit](https://github.com/Schibsted-Tech-Polska/kotlin-kit)
+- [learn kotlin while developing an android app](https://medium.com/@juanchosaravia/learn-kotlin-while-developing-an-android-app-introduction-567e21ff9664#.1v0lcgg4a)
 
 # 知识点
 ## 1. Activity/Fragment/Adapter 中获取view对象
