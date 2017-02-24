@@ -1,17 +1,23 @@
-package com.ldxx.kotlin
+package com.ldxx.kotlin.mvp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
-import com.ldxx.kotlin.adapter.PersonAdapter
-import com.ldxx.kotlin.bean.Person
+import com.ldxx.kotlin.R
+import com.ldxx.kotlin.base.AppComponent
+import com.ldxx.kotlin.base.BaseActivity
+import com.ldxx.kotlin.mvp.adapter.PersonAdapter
+import com.ldxx.kotlin.mvp.bean.Person
 import com.ldxx.kotlin.extensions.hideKeyboard
 import com.ldxx.kotlin.extensions.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    override fun setupComponent(appComponent: AppComponent) {
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun sum(a: Int, b: Int): String {
-        return "$a + $b = ${a + b}"
-    }
+    fun sum(a: Int, b: Int): String = "$a + $b = ${a + b}"
+
 
     fun calculate() {
         hideKeyboard(text_a)

@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- background color -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- title text color -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!-- secondary title and back icon color -->
+        <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+
 </resources>

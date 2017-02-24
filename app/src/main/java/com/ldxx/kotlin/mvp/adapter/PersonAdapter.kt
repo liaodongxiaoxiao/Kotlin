@@ -1,12 +1,12 @@
-package com.ldxx.kotlin.adapter
+package com.ldxx.kotlin.mvp.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ldxx.kotlin.R
-import com.ldxx.kotlin.adapter.PersonAdapter.ViewHolder
-import com.ldxx.kotlin.bean.Person
+import com.ldxx.kotlin.mvp.adapter.PersonAdapter.ViewHolder
+import com.ldxx.kotlin.mvp.bean.Person
 import kotlinx.android.synthetic.main.item_person.view.*
 
 

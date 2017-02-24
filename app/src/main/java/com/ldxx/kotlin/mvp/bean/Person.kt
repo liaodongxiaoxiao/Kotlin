@@ -1,4 +1,4 @@
-package com.ldxx.kotlin.bean
+package com.ldxx.kotlin.mvp.bean
 
 import com.ldxx.kotlin.R
 import java.io.Serializable

@@ -1,9 +1,11 @@
-package com.ldxx.kotlin
+package com.ldxx.kotlin.mvp.ui.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.view.MenuItem
-import com.ldxx.kotlin.bean.Person
+import com.ldxx.kotlin.R
+import com.ldxx.kotlin.mvp.bean.Person
 import kotlinx.android.synthetic.main.activity_second.*
 
 class SecondActivity : AppCompatActivity() {
@@ -29,5 +31,10 @@ class SecondActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_item,menu)
+        return true
     }
 }
