@@ -1,5 +1,6 @@
 package com.ldxx.kotlin.mvp.presenter.impl
 
+import android.util.Log
 import com.ldxx.kotlin.base.IBaseRequestCompleteCallBack
 import com.ldxx.kotlin.base.ListBase
 import com.ldxx.kotlin.mvp.bean.Cell
@@ -8,6 +9,7 @@ import com.ldxx.kotlin.mvp.bean.LotteryResult
 import com.ldxx.kotlin.mvp.model.IExcelPanelModel
 import com.ldxx.kotlin.mvp.presenter.IExcelPanelPresenter
 import com.ldxx.kotlin.mvp.ui.ExcelPanelView
+import java.net.SocketTimeoutException
 
 /**
  * Created by wangzhuo-neu
@@ -23,7 +25,12 @@ class ExcelPanelPresenterImpl(var view: ExcelPanelView, var model: IExcelPanelMo
             }
 
             override fun requestError(e: Throwable?) {
-
+                Log.e("EPP", e?.message, e)
+                if (e is SocketTimeoutException) {
+                    view.setError("网络连接超时", 100)
+                } else {
+                    view.setError(e?.message, 900)
+                }
             }
         })
     }

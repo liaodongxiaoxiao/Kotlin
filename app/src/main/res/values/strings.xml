@@ -7,4 +7,6 @@
     <string name="str_username">UserName:</string>
     <string name="str_age">Age:</string>
     <string name="str_age_format">%s 岁</string>
+    <string name="str_ball_num">号码</string>
+    <string name="str_issue">期次</string>
 </resources>

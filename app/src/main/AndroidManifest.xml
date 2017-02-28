@@ -21,8 +21,9 @@
         <activity
             android:name=".mvp.ui.activity.SecondActivity"
             android:theme="@style/AppThemeNoActionBar"/>
-        <activity android:name=".mvp.ui.activity.ExcelPanelActivity">
-        </activity>
+        <activity
+            android:name=".mvp.ui.activity.ExcelPanelActivity"
+            android:theme="@style/AppThemeNoActionBar"/>
     </application>
 
 </manifest>

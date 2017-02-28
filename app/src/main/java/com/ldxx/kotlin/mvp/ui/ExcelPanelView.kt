@@ -10,4 +10,6 @@ import com.ldxx.kotlin.mvp.bean.ColTitle
  */
 interface ExcelPanelView {
     fun setData(datas: MutableList<MutableList<Cell>>, rowTitles: MutableList<ColTitle>)
+
+    fun setError(message: String?,type:Int)
 }

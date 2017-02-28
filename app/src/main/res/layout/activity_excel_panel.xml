@@ -5,13 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ldxx.kotlin.mvp.ui.activity.ExcelPanelActivity">
 
-    <cn.zhouchaoyuan.excelpanel.ExcelPanel
-        android:id="@+id/result"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/ep_toolBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:left_cell_width="100dp"
-        app:normal_cell_width="50dp"
-        app:top_cell_height="50dp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <com.gturedi.views.StatefulLayout
+        android:id="@+id/stateful"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:stfAnimationEnabled="true"
+        app:stfInAnimation="@android:anim/slide_in_left"
+        app:stfOutAnimation="@android:anim/slide_out_right">
+
+        <cn.zhouchaoyuan.excelpanel.ExcelPanel
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:left_cell_width="80dp"
+            app:normal_cell_width="30dp"
+            app:top_cell_height="30dp"/>
+    </com.gturedi.views.StatefulLayout>
 </LinearLayout>

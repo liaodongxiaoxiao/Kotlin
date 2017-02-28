@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_excel_panel.*
 import javax.inject.Inject
 
 class ExcelPanelActivity : BaseActivity(), ExcelPanelView {
+
     @Inject
     lateinit var presenter: IExcelPanelPresenter
 
@@ -29,14 +30,29 @@ class ExcelPanelActivity : BaseActivity(), ExcelPanelView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_excel_panel)
+        setSupportActionBar(ep_toolBar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         result.setAdapter(adapter)
-
-        presenter.loadResult()
+        loadData()
     }
 
 
     override fun setData(datas: MutableList<MutableList<Cell>>, rowTitles: MutableList<ColTitle>) {
+        stateful.showContent()
         adapter.setDatas(datas, rowTitles)
+    }
+
+    override fun setError(message: String?, type: Int) {
+        if (type == 200) {
+            stateful.showOffline(message, { loadData() })
+        } else {
+            stateful.showError(message, { loadData() })
+        }
+    }
+
+    private fun loadData() {
+        stateful.showLoading("正在获取数据...")
+        presenter.loadResult()
     }
 }

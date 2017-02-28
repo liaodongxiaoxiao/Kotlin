@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:background="@drawable/item_border"
-              android:layout_width="100dp"
-              android:layout_height="50dp"
+              android:layout_width="80dp"
+              android:layout_height="30dp"
               android:orientation="vertical">
 
     <TextView
@@ -13,5 +13,6 @@
         android:gravity="center"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="#a4a8ac"
         tools:text="text"/>
 </LinearLayout>

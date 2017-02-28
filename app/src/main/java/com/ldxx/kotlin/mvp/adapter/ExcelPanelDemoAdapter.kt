@@ -1,12 +1,10 @@
 package com.ldxx.kotlin.mvp.adapter
 
 import android.content.Context
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import cn.zhouchaoyuan.excelpanel.BaseExcelPanelAdapter
 import com.ldxx.kotlin.R
 import com.ldxx.kotlin.extensions.getColorByResource
@@ -61,9 +59,7 @@ class ExcelPanelDemoAdapter(var context: Context) : BaseExcelPanelAdapter<ColTit
     }
 
     override fun onCreateTopLeftView(): View {
-        var text: TextView = TextView(context)
-        text.text = "Test"
-        return text
+        return inflater.inflate(R.layout.title_view,null);
     }
 
     override fun onBindLeftViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

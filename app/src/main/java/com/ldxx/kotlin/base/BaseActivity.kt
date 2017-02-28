@@ -2,6 +2,7 @@ package com.ldxx.kotlin.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 
 /**
  * Created by wangzhuo-neu
@@ -17,4 +18,12 @@ import android.support.v7.app.AppCompatActivity
     }
 
     protected abstract fun setupComponent(appComponent: AppComponent)
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
