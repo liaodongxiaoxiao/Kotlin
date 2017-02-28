@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="k_red">#ff4750</color>
+    <color name="k_red_normal">#f7e0e1</color>
+    <color name="k_blue">#425cec</color>
+    <color name="k_blue_normal">#e3e5ef</color>
 </resources>

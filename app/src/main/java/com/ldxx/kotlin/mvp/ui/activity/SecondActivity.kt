@@ -1,5 +1,6 @@
 package com.ldxx.kotlin.mvp.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -26,15 +27,23 @@ class SecondActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == android.R.id.home) {
-            finish()
-            return true
+
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            R.id.action_settings -> {
+                startActivity(Intent(this, ExcelPanelActivity::class.java))
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_item,menu)
+        menuInflater.inflate(R.menu.menu_item, menu)
         return true
     }
 }

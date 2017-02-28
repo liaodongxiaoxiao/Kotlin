@@ -1,5 +1,6 @@
 package com.ldxx.kotlin.api
 
+import com.ldxx.kotlin.base.BaseResponse
 import com.ldxx.kotlin.base.ListBase
 import com.ldxx.kotlin.mvp.bean.LotteryResult
 import retrofit2.http.GET
@@ -12,6 +13,6 @@ import rx.Observable
  */
 interface KotlinAPI {
     @GET("/result/getRecentlyResult/{num}")
-    fun getRecentlyResult(@Path("num") num: String): Observable<ListBase<LotteryResult>>
+    fun getRecentlyResult(@Path("num") num: Int): Observable<BaseResponse<ListBase<LotteryResult>>>
 
 }

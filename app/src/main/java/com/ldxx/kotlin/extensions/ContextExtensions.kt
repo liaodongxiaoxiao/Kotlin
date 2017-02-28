@@ -1,6 +1,7 @@
 package com.ldxx.kotlin.extensions
 
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -45,3 +46,7 @@ fun Context.makeTransitionPair(view: View, key: String): android.support.v4.util
 }
 
 fun Context.getString(strId:Int) = this.getString(strId)
+
+fun Context.getColorByResource(colorId:Int):Int{
+    return ContextCompat.getColor(this, colorId)
+}

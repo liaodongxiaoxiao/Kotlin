@@ -7,8 +7,8 @@ package com.ldxx.kotlin.java
 
 fun main(args: Array<String>) {
     //sumAB(2, 6)
-    val a:Int =8
-    val b =a.toDouble()
+    //val a:Int =8
+    //val b =a.toDouble()
     //print(a==b)
     val bl:Boolean =true
     println(bl)
