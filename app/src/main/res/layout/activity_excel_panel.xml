@@ -19,9 +19,7 @@
         android:id="@+id/stateful"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:stfAnimationEnabled="true"
-        app:stfInAnimation="@android:anim/slide_in_left"
-        app:stfOutAnimation="@android:anim/slide_out_right">
+        app:stfAnimationEnabled="true">
 
         <cn.zhouchaoyuan.excelpanel.ExcelPanel
             android:id="@+id/result"

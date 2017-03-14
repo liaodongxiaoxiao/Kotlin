@@ -21,7 +21,11 @@ class ExcelPanelPresenterImpl(var view: ExcelPanelView, var model: IExcelPanelMo
 
         model.getResult(object : IBaseRequestCompleteCallBack<ListBase<LotteryResult>> {
             override fun requestComplete(t: ListBase<LotteryResult>?) {
-                makeData(t!!.list)
+                if (t != null) {
+                    val list = t.list
+                    makeData(list.sortedBy { it.issue })
+                }
+
             }
 
             override fun requestError(e: Throwable?) {
