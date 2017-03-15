@@ -42,7 +42,7 @@ class ExcelPanelDemoAdapter(var context: Context) : BaseExcelPanelAdapter<ColTit
     }
 
     override fun onCreateTopViewHolder(parent: ViewGroup, viewType: Int): ColTitleViewHolder {
-        return ColTitleViewHolder(inflater.inflate(R.layout.item_e_p_title, parent, false))
+        return ColTitleViewHolder(inflater.inflate(R.layout.item_top_title, parent, false))
     }
 
     override fun onBindCellViewHolder(holder: RecyclerView.ViewHolder, verticalPosition: Int, horizontalPosition: Int) {
@@ -59,7 +59,7 @@ class ExcelPanelDemoAdapter(var context: Context) : BaseExcelPanelAdapter<ColTit
     }
 
     override fun onCreateTopLeftView(): View {
-        return inflater.inflate(R.layout.title_view,null);
+        return inflater.inflate(R.layout.title_view, null);
     }
 
     override fun onBindLeftViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -105,12 +105,22 @@ class ExcelPanelDemoAdapter(var context: Context) : BaseExcelPanelAdapter<ColTit
             itemView.col_title.text = result.value
             //itemView.setBackgroundColor(Color.parseColor("#556677"))
             if (result.status == 1) {
+                when (result.value.toInt()) {
+                    in 1..11 -> itemView.col_title.setBackgroundColor(R.color.red_one)
+                    in 12..22 -> itemView.col_title.setBackgroundColor(R.color.red_two)
+                    else -> itemView.col_title.setBackgroundColor(R.color.red_three)
+                }
                 if (result.selected) {
                     itemView.col_title.setTextColor(itemView.context.getColorByResource(R.color.k_red))
                 } else {
                     itemView.col_title.setTextColor(itemView.context.getColorByResource(R.color.k_red_normal))
                 }
             } else {
+                if (result.value.toInt() < 9) {
+                    itemView.col_title.setBackgroundColor(R.color.blue_one)
+                } else {
+                    itemView.col_title.setBackgroundColor(R.color.blue_two)
+                }
                 if (result.selected) {
                     itemView.col_title.setTextColor(itemView.context.getColorByResource(R.color.k_blue))
                 } else {

@@ -7,4 +7,11 @@
     <color name="k_red_normal">#f7e0e1</color>
     <color name="k_blue">#425cec</color>
     <color name="k_blue_normal">#e3e5ef</color>
+
+    <color name="red_one">#ddccd9</color>
+    <color name="red_two">#dcb4d3</color>
+    <color name="red_three">#ddccd9</color>
+    <color name="blue_one">#ccd8dd</color>
+    <color name="blue_two">#b0cdd9</color>
+
 </resources>
