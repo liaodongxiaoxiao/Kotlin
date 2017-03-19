@@ -7,7 +7,16 @@ import kotlin.comparisons.compareBy
 /**
  * Created by wangzhuo-neu on 2017/3/14.
  */
-data class Person(var name: String, var age: Int)
+data class Person(var name: String, var age: Int) : Comparable<Person> {
+    override fun compareTo(other: Person): Int {
+        if (this.age == other.age) {
+            return this.name.compareTo(other.name)
+        } else {
+            return other.age - this.age
+        }
+    }
+
+}
 
 fun main(args: Array<String>) {
     var personList: MutableList<Person> = mutableListOf()
@@ -21,13 +30,13 @@ fun main(args: Array<String>) {
     println("----排序后----")
     //personList.sortBy ({ it.age })
     //personList.sortBy(Person::age)
-    personList.sortByDescending({ it.age })
+    //personList.sortByDescending({ it.age })
     //val pList: List<Person> = personList.sortedBy { it.name }
     //pList.forEach(::println)
     //println("-- --")
 
-    personList.sortWith(compareBy({ it.age }, { it.name }))
-    /* personList.sortWith(Comparator<Person> { person1: Person, person2: Person ->
+    //personList.sortWith(compareBy({ it.age }, { it.name }))
+    /*personList.sortWith(Comparator<Person> { person1: Person, person2: Person ->
          person2.age - person1.age
      })*/
     /*val c1: Comparator<Person> = Comparator { o1, o2 ->
@@ -38,6 +47,7 @@ fun main(args: Array<String>) {
         }
     }
     personList.sortWith(c1)*/
-    personList.forEach(::println)
+    val sorted = personList.sorted()
+    sorted.forEach(::println)
 
 }
